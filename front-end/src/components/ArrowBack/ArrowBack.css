@@ -1,0 +1,12 @@
+.arrow-icon{
+    fill: #622804;
+}
+
+.arrow-back-container{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    top: 0;
+    width: 100%;
+    transform: scale(1.5);
+}

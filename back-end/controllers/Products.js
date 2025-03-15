@@ -10,8 +10,16 @@ async function index(req, res) {
   }
 }
 
-function show(req, res) {
-  res.send('Products show');
+async function show(req, res) {
+  try {
+    const { id } = req.params;
+    const product = await prisma.product.findUnique({
+      where: { id },
+    });
+    res.json(product);
+  } catch (error) {
+    res.status(500).json({ error: 'Erro ao buscar produto' });
+  }
 }
 
 function create(req, res) {

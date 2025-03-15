@@ -1,4 +1,3 @@
-// Exemplo de arquivo: ProductsPage.js
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
@@ -11,7 +10,7 @@ const Card = () => {
     // Função para buscar os produtos
     async function fetchProducts() {
       try {
-        const response = await axios.get('http://localhost:3000/api/products'); // Substitua pela URL correta da sua API
+        const response = await axios.get('http://localhost:3000/api/products/'); // Substitua pela URL correta da sua API
         setProducts(response.data); // Atualiza o estado com os produtos recebidos
       } catch (error) {
         console.error('Erro ao buscar produtos:', error);

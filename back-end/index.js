@@ -1,6 +1,7 @@
 const express = require('express');
-const apiRoutes = require('./Routes/api.js');
 const cors = require('cors');
+const productRoutes = require('./Routes/products.js'); // Separate routes for products
+const slideRoutes = require('./Routes/slides.js'); // Separate routes for slides
 
 const app = express();
 const PORT = 3000;
@@ -9,10 +10,11 @@ const PORT = 3000;
 app.use(cors());
 app.use(express.json());
 
-// Rotas
-app.use('/api/products', apiRoutes);
+// Routes
+app.use('/api/products', productRoutes); // Use product routes
+app.use('/api/slides', slideRoutes); // Use slide routes
 
-// Inicia o servidor
+// Start the server
 app.listen(PORT, () => {
   console.log(`Servidor rodando em http://localhost:${PORT}`);
 });

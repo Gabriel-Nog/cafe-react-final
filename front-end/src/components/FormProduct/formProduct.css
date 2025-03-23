@@ -1,0 +1,49 @@
+.form-product-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.form-product-header {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #622804;
+}
+
+.formProduct {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: solid 4px #622804;
+  border-radius: 10px;
+  width: 30%;
+}
+
+.inputs-product-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.inputs-product-container input {
+  margin: 10px;
+  padding: 10px;
+  width: 300px;
+  border: 4px solid #622804;
+  border-radius: 5px;
+}
+
+.inputs-product-container input[type='file'] {
+  border: none;
+}
+
+.inputs-product-container label {
+  align-self: flex-start;
+  margin: 12px;
+}

@@ -23,7 +23,23 @@ async function show(req, res) {
 }
 
 function create(req, res) {
-  res.send('Products create');
+  try {
+    const { name, price, slug, imageUrl } = req.body;
+    prisma.product
+      .create({
+        data: {
+          name,
+          price,
+          slug,
+          imageUrl,
+        },
+      })
+      .then(() => {
+        res.status(201).json({ message: 'Produto criado' });
+      });
+  } catch (error) {
+    res.status(500).json({ error: 'Erro ao criar produto' });
+  }
 }
 
 function update(req, res) {

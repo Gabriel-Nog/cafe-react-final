@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './Pages/Home/Home';
+import FormProduct from './components/FormProduct/formProduct';
 import Pedidos from './Pages/SaleOrder/SaleOrder';
 import NotFound from './Pages/NotFound/NotFound';
 import './App.css';
@@ -11,6 +12,7 @@ function App() {
       <ToastContainer />
       <Routes>
         <Route path="/" exact element={<Home />} />
+        <Route path="/product" element={<FormProduct />} />
         <Route path="/sale-order" element={<Pedidos />} />
         <Route path="/sale-order/:id" element={<Pedidos />} />
         <Route path="*" element={<NotFound />} />

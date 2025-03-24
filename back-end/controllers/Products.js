@@ -22,25 +22,25 @@ async function show(req, res) {
   }
 }
 
-function create(req, res) {
+const create = async (req, res) => {
   try {
-    const { name, price, slug, imageUrl } = req.body;
-    prisma.product
-      .create({
-        data: {
-          name,
-          price,
-          slug,
-          imageUrl,
-        },
-      })
-      .then(() => {
-        res.status(201).json({ message: 'Produto criado' });
-      });
+    const { name, price, slug } = req.body;
+    const image = req.file ? `/Images/${req.file.filename}` : null; // Caminho relativo ao frontend
+    const product = await prisma.product.create({
+      data: {
+        name,
+        price: parseFloat(price),
+        slug,
+        image,
+      },
+    });
+
+    res.status(201).json(product);
   } catch (error) {
+    console.error(error);
     res.status(500).json({ error: 'Erro ao criar produto' });
   }
-}
+};
 
 function update(req, res) {
   res.send('Products update');

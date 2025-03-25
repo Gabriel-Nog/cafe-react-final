@@ -71,4 +71,13 @@ const register = async (req, res) => {
   }
 };
 
-module.exports = { login, register };
+const showRoles = async (req, res) => {
+  try {
+    const roles = await prisma.role.findMany();
+    res.json(roles);
+  } catch (error) {
+    res.status(500).json({ message: 'Erro ao buscar papéis!' });
+  }
+};
+
+module.exports = { login, register, showRoles };

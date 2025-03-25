@@ -1,5 +1,5 @@
 const express = require('express');
-const { login, register } = require('../controllers/User');
+const { login, register, showRoles } = require('../controllers/User');
 
 const router = express.Router();
 
@@ -7,5 +7,7 @@ const router = express.Router();
 router.post('/login', login);
 //Registro
 router.post('/register', register);
+//Resgatar papel desempenhado
+router.get('/role', showRoles);
 
 module.exports = router;

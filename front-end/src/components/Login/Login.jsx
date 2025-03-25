@@ -24,15 +24,11 @@ const Login = () => {
       navigate('/');
     } catch (error) {
       console.error('Error:', error.response?.data || error.message); // Log the error details
-      toast.error(
-        'Erro ao fazer o login: ',
-        error.response?.data || error.message,
-        {
-          position: 'top-center',
-          closeButton: false,
-          autoClose: 3000,
-        },
-      );
+      toast.error(<div>{error.response?.data || error.message}</div>, {
+        position: 'top-center',
+        closeButton: false,
+        autoClose: 3000,
+      });
     }
   };
 

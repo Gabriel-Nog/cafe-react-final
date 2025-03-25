@@ -21,3 +21,17 @@
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
+
+.register-link {
+  display: flex;
+  text-align: left;
+  margin: 20px;
+}
+
+.register-link a {
+  font-size: medium;
+  font-weight: 700;
+  color: #622804;
+  cursor: pointer;
+  padding-left: 10px;
+}

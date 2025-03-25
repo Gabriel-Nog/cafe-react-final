@@ -43,6 +43,18 @@ const Login = () => {
         <label htmlFor="password">Senha</label>
         <input type="password" name="password" id="password" required />
         <button type="submit">Entrar</button>
+        <div className="register-link">
+          <p>Não tem uma conta?</p>
+          <br />
+          <a
+            type="button"
+            onClick={() => {
+              navigate('/register');
+            }}
+          >
+            Criar conta
+          </a>
+        </div>
       </form>
     </div>
   );

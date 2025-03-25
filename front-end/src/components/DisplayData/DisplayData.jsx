@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import ArrowBack from '../ArrowBack/ArrowBack';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import { jwtDecode } from 'jwt-decode';
 import 'react-toastify/dist/ReactToastify.css';
 import './DisplayData.css';
 import axios from 'axios';
@@ -10,6 +11,22 @@ const DisplayData = ({ formData }) => {
   const history = useNavigate();
   const [productValue, setProductValue] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [userId, setUser] = useState(null);
+
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    if (token) {
+      const { id } = jwtDecode(token);
+      setUser(id);
+    } else {
+      toast.error('Você precisa estar logado para acessar essa página.', {
+        position: 'top-center',
+        closeButton: false,
+        autoClose: 3000,
+      });
+      history('/login');
+    }
+  }, []);
 
   // Função para buscar o produto
   useEffect(() => {
@@ -45,8 +62,7 @@ const DisplayData = ({ formData }) => {
     const orderData = {
       value: productReturn(productValue).price,
       deliveryLocation: formData.table,
-      //Após criar um método de login mudar IMEDIATAMENTE para o id do usuário logado
-      userId: 'cm7ugsa0h0004ij7pvng7bzfs',
+      userId,
       productIds: [formData.product],
     };
 

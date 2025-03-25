@@ -9,11 +9,11 @@
 .register-header {
   text-align: center;
   padding: 20px;
-  margin: 30px;
+  margin: 60px;
 }
 
 .register-form {
-  width: 30%;
+  width: 50%;
   max-width: 400px;
   padding: 15px;
   margin: 0 auto;

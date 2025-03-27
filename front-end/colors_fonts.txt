@@ -1,5 +1,0 @@
-Cor Primária: #622804
-Cor de Texto 1: #efe9ce
-Cor de Texto 2: #a6744c
-
-Fonte: Roboto

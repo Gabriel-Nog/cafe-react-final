@@ -80,4 +80,13 @@ const showRoles = async (req, res) => {
   }
 };
 
-module.exports = { login, register, showRoles };
+const showSales = async (req, res) => {
+  try {
+    const sales = await prisma.order.count();
+    res.json(sales);
+  } catch (error) {
+    res.status(500).json({ message: 'Erro ao buscar vendas!' });
+  }
+};
+
+module.exports = { login, register, showRoles, showSales };

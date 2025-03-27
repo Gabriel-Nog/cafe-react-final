@@ -50,7 +50,7 @@ const Register = () => {
         closeButton: false,
         autoClose: 3000,
       });
-      navigate('/');
+      navigate('/login');
     } catch (error) {
       console.error('Error:', error.response?.data || error.message);
       toast.error(

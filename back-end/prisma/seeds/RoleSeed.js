@@ -1,19 +1,19 @@
-import { PrismaClient } from '@prisma/client';
+// seeds/RoleSeed.js
 
+import { PrismaClient } from '@prisma/client';
 const prisma = new PrismaClient();
 
-async function main() {
-  const roles = [{ name: 'Admin' }, { name: 'Customer' }, { name: 'Manager' }];
-
-  for (const role of roles) {
-    await prisma.role.upsert({
-      where: { name: role.name },
-      update: {},
-      create: role,
-    });
-  }
-
-  console.log('Roles have been seeded.');
+export default async function seed() {
+  console.log('Criando roles...');
+  await prisma.role.create({
+    data: {
+      name: 'Admin',
+    },
+  });
+  await prisma.role.create({
+    data: {
+      name: 'User',
+    },
+  });
+  console.log('Roles criados com sucesso.');
 }
-
-export default main;
